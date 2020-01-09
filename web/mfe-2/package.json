@@ -1,0 +1,21 @@
+{
+  "name": "@aryzing/mfe-2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Eduard Bardají Puig <ebardaji@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "yarn run build:types && yarn run build:js",
+    "build:types": "tsc",
+    "build:js": "webpack --config ../../config/webpack.config.prod.js",
+    "dev": "concurrently -n tsc,webpack \"yarn run dev:types\" \"yarn run dev:js\"",
+    "dev:types": "tsc --watch",
+    "dev:js": "webpack --config ../../config/webpack.config.dev.js"
+  },
+  "dependencies": {
+    "@aryzing/bar-pkg": "1.0.0",
+    "@aryzing/foo-pkg": "1.0.0",
+    "lodash": "^4.17.15"
+  }
+}

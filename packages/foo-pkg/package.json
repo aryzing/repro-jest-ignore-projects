@@ -1,0 +1,20 @@
+{
+  "name": "@aryzing/foo-pkg",
+  "private": true,
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "Eduard Bardají Puig <ebardaji@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn run build:types && yarn run build:js",
+    "build:types": "tsc",
+    "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline --root-mode upward",
+    "dev": "concurrently -n tsc,babel \"yarn run dev:types\" \"yarn run dev:js\"",
+    "dev:types": "tsc --watch",
+    "dev:js": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline --root-mode upward --watch"
+
+  },
+  "sideEffects": false
+}
